@@ -59,10 +59,11 @@ exit()
 ./manage.py startapp aula3
 
 ./manage.py runserver
-CTR-C
 
 http://localhost:8000/aula3/
 http://localhost:8000/aula3/ceanma@gmail.com/
+
+CTR-C
 
 ./manage.py shell
 from django.core.urlresolvers import reverse
@@ -70,3 +71,34 @@ reverse('aula3_index')
 reverse('aula3_detail',args=['ceanma@gmail.com'])
 exit()
 
+./manage.py startapp aula4
+
+./manage.py shell
+from django import template
+t = template.Template('Meu nome é {{nome|upper}}.')
+c = template.Context({'nome': 'César A. Magalhães'})
+t.render(c)
+c = template.Context({'nome': 'Kércia O. Alves'})
+t.render(c)
+
+template_string = '''
+{%if idade <= 20%}
+A idade é menor ou igual a 20
+{%else%}
+A idade é maior que 20
+{%endif%}
+'''
+t = template.Template(template_string)
+c = template.Context({'idade': 20})
+t.render(c)
+
+c = template.Context({'idade': 34})
+t.render(c)
+
+exit()
+
+./manage.py runserver
+
+http://localhost:8000/aula4
+
+CTR-C

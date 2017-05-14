@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Index da aula4{% endblock %}
+
+{% block content %}
+<h1>Olá mundo</h1>
+
+<p>Sejam bem vindos ao curso django para iniciantes!</p>
+<div>
+{% include 'aula4/opcoes.html' with nomes=lista%}
+</div>
+{% endblock %}
+
+

@@ -16,11 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from aula3.views import index, detail
+from aula3.views import index as aula3_index
+from aula3.views import detail as aula3_detail
+from aula4.views import index as aula4_index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^aula3/$', index, name='aula3_index'),
-    url(r'^aula3/(?P<username>[\w.@+-]+)/$', detail, name='aula3_detail'),
+    url(r'^aula3/$', aula3_index, name='aula3_index'),
+    url(r'^aula3/(?P<username>[\w.@+-]+)/$', aula3_detail, name='aula3_detail'),
+
+    url(r'^aula4/$', aula4_index, name='aula4_index'),
 ]
