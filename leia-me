@@ -102,3 +102,66 @@ exit()
 http://localhost:8000/aula4
 
 CTR-C
+
+./manage.py startapp aula5
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py shell
+from datetime import date
+from aula5.models import Contato
+contato = Contato()
+contato.nome = 'César Antônio de Magalhães'
+contato.email = 'ceanma@gmail.com'
+contato.twitter = 'https://twitter.com/_cams7_'
+contato.data_nascimento = date(1983,3,5)
+contato.save()
+exit()
+
+./manage.py shell
+from aula5.models import Contato
+contato = Contato.objects.get()
+contato
+contato = Contato.objects.get(id=1)
+contato
+contato = Contato.objects.get(pk=1)
+contato
+contatos = Contato.objects.filter(nome='César Antônio de Magalhães')
+contatos
+contatos = Contato.objects.all()
+contatos
+exit()
+
+./manage.py shell
+from aula5.models import Post, Categoria, Comentarios
+categoria1 = Categoria(nome='Desenvolvimento web')
+categoria1.save()
+categoria2 = Categoria(nome='Sistemas distribuidos')
+categoria2.save()
+post1 = Post(titulo='Meu primeiro post', texto='Texto do meu primeiro post')
+post1.save()
+post1.categorias.add(categoria1)
+post1.categorias.add(categoria2)
+post1.categorias.all()
+comentario1 = Comentarios(autor='César A. Magalhães', comentario='Meu comentário')
+comentario1.post = post1
+comentario1.save()
+comentario2 = Comentarios(autor='César A. Magalhães', comentario='Meu segundo comentário')
+comentario2.post = post1
+comentario2.save()
+exit()
+
+./manage.py shell
+from aula5.models import Post, Categoria, Comentarios
+categoria1 = Categoria.objects.get(id=1)
+categoria1.posts.all()
+post1 = Post.objects.get(id=1)
+post1.categorias.all()
+
+comentario1 = Comentarios.objects.get(id=1)
+comentario1.post
+post1 = Post.objects.get(id=1)
+post1.comentarios.all()
+exit()
