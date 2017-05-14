@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'aula3',
     'aula4',
     'aula5',
+    'aula6',
 ]
 
 MIDDLEWARE = [

@@ -19,6 +19,8 @@ from django.contrib import admin
 from aula3.views import index as aula3_index
 from aula3.views import detail as aula3_detail
 from aula4.views import index as aula4_index
+from aula6.views import index as aula6_index
+from aula6.views import detail as aula6_detail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +29,7 @@ urlpatterns = [
     url(r'^aula3/(?P<username>[\w.@+-]+)/$', aula3_detail, name='aula3_detail'),
 
     url(r'^aula4/$', aula4_index, name='aula4_index'),
+
+    url(r'^aula6/$', aula6_index, name='aula6_index'),
+    url(r'^aula6/(?P<id>\d+)/$', aula6_detail, name='aula6_detail'),
 ]

@@ -165,3 +165,16 @@ comentario1.post
 post1 = Post.objects.get(id=1)
 post1.comentarios.all()
 exit()
+
+./manage.py startapp aula6
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py runserver
+
+http://localhost:8000/aula6
+http://localhost:8000/aula6/1
+
+CTR-C
