@@ -1,0 +1,72 @@
+sudo apt-get install python3-mysqldb
+
+cd /home/cams7/Dev/Python/Youtube/Mixincode
+source python3-env/django-1.11/bin/activate
+python --version
+cd Projects
+django-admin.py startproject cursodjango2
+cd cursodjango2
+./manage.py runserver
+CTR-C
+
+#-------------------------------------------------
+
+mysql --version
+
+mysql -u root -p
+CREATE DATABASE cursodjango2;
+GRANT ALL PRIVILEGES ON cursodjango2.* TO 'mixincode'@'%';
+FLUSH PRIVILEGES;
+exit
+mysql --host=127.0.0.1 --user=mixincode --password=django cursodjango2
+exit
+
+#-------------------------------------------------
+
+./manage.py check
+./manage.py migrate
+
+./manage.py shell
+from django.contrib.auth.models import User
+usuario = User.objects.create_user('cams7', 'ceanma@gmail.com', '12345')
+usuario.first_name = 'César'
+usuario.last_name = 'Magalhães'
+usuario.is_superuser = True
+usuario.is_staff = True
+usuario.save()
+exit()
+
+./manage.py runserver
+CTR-C
+
+./manage.py shell
+from django.conf import settings
+settings.DEBUG
+settings.PROJECT_PATH
+settings.BASE_DIR
+settings.LANGUAGE_CODE
+settings.TIME_ZONE
+settings.MEDIA_ROOT
+settings.MEDIA_URL
+settings.STATIC_ROOT
+settings.STATIC_URL
+settings.STATICFILES_DIRS
+settings.STATICFILES_FINDERS
+settings.TEMPLATE_LOADERS
+settings.TEMPLATES
+exit()
+
+./manage.py startapp aula3
+
+./manage.py runserver
+CTR-C
+
+http://localhost:8000/aula3/
+http://localhost:8000/aula3/ceanma@gmail.com/
+
+./manage.py shell
+from django.core.urlresolvers import reverse
+reverse('aula3_index')
+reverse('aula3_detail',args=['ceanma@gmail.com'])
+exit()
+
