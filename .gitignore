@@ -106,5 +106,7 @@ ENV/
 #Sqlite
 *.sqlite3
 
+.gitignore.swp
+
 #Projeto cursodjango2
 settings_local.py

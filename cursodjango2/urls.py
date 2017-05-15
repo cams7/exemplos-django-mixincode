@@ -25,6 +25,7 @@ from aula7.views import index as aula7_index
 from aula7.views import sair as aula7_sair
 from aula7.views import view_protegida as aula7_view_protegida
 from aula7.views import view_protegida2 as aula7_view_protegida2
+from aula9.views import index as aula9_index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -41,4 +42,6 @@ urlpatterns = [
     url(r'^aula7/sair/$', aula7_sair, name='aula7_sair'),
     url(r'^aula7/view_protegida/$', aula7_view_protegida, name='aula7_view_protegida'),
     url(r'^aula7/view_protegida2/$', aula7_view_protegida2, name='aula7_view_protegida2'),
+
+    url(r'^aula9/$', aula9_index, name='aula9_index'),
 ]
