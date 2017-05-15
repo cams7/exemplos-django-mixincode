@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'aula5',
     'aula6',
     'aula7',
+    'aula8',
 ]
 
 MIDDLEWARE = [

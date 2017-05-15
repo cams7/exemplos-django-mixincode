@@ -59,10 +59,8 @@ exit()
 ./manage.py startapp aula3
 
 ./manage.py runserver
-
 http://localhost:8000/aula3/
 http://localhost:8000/aula3/ceanma@gmail.com/
-
 CTR-C
 
 ./manage.py shell
@@ -98,9 +96,7 @@ t.render(c)
 exit()
 
 ./manage.py runserver
-
 http://localhost:8000/aula4
-
 CTR-C
 
 ./manage.py startapp aula5
@@ -173,10 +169,8 @@ exit()
 ./manage.py migrate
 
 ./manage.py runserver
-
 http://localhost:8000/aula6
 http://localhost:8000/aula6/1
-
 CTR-C
 
 ./manage.py startapp aula7
@@ -225,12 +219,10 @@ usuario.user_permissions.all()
 exit()
 
 ./manage.py runserver
-
 http://localhost:8000/aula7
 http://localhost:8000/aula7/sair
 http://localhost:8000/view_protegida
 http://localhost:8000/view_protegida2
-
 CTR-C
 
 
@@ -258,3 +250,14 @@ exit()
 
 ./manage.py runserver
 CTR-C
+
+./manage.py startapp aula8
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py runserver
+http://localhost:8000/admin/aula8/contact/
+CTR-C
+
