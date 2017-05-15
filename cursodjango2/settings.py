@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'aula4',
     'aula5',
     'aula6',
+    'aula7',
 ]
 
 MIDDLEWARE = [
@@ -164,6 +165,9 @@ STATICFILES_DIRS = (
 #     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 # )
+
+AUTH_PROFILE_MODULE = 'aula7.UserProfile'
+LOGIN_URL = '/aula7/'
 
 
 

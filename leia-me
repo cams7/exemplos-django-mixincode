@@ -178,3 +178,83 @@ http://localhost:8000/aula6
 http://localhost:8000/aula6/1
 
 CTR-C
+
+./manage.py startapp aula7
+
+./manage.py shell
+from django.contrib.auth.models import User
+usuario = User.objects.create_user('luiz', 'luiz@teste.com', 'abc123')
+usuario.username
+usuario.email
+usuario.is_superuser
+usuario.first_name = 'Luiz'
+usuario.last_name = 'Magalhães'
+usuario.save()
+usuario.set_password('12345')
+usuario.save()
+exit()
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py shell
+from django.conf import settings
+settings.AUTH_PROFILE_MODULE
+settings.LOGIN_URL
+exit()
+
+./manage.py shell
+from datetime import date
+from aula7.models import UserProfile
+from django.contrib.auth.models import User
+usuario = User.objects.get(username='cams7')
+perfil = UserProfile.objects.create(user=usuario)
+perfil.birthday=date(1983,3,5)
+perfil.save()
+exit()
+
+./manage.py shell
+from django.contrib.auth.models import User, Permission
+usuario = User.objects.get(id=2)
+usuario.user_permissions.all()
+permissoes = Permission.objects.all()
+permissoes
+usuario.user_permissions.add(permissoes[3])
+usuario.user_permissions.all()
+exit()
+
+./manage.py runserver
+
+http://localhost:8000/aula7
+http://localhost:8000/aula7/sair
+http://localhost:8000/view_protegida
+http://localhost:8000/view_protegida2
+
+CTR-C
+
+
+./manage.py shell
+from django.contrib.auth.models import User, Group, Permission
+usuario = User.objects.create_user('luan', 'luan@teste.com', '12345')
+usuario.first_name = 'Luan'
+usuario.last_name = 'Magalhães'
+usuario.save()
+usuario.user_permissions.all()
+usuario.user_permissions.clear()
+usuario.user_permissions.all()
+grupos = Group.objects.all()
+grupos
+grupo = Group.objects.create(name='Grupo 1')
+grupo
+grupo.permissions.all()
+permissoes = Permission.objects.all()
+grupo.permissions.add(permissoes[3])
+grupo.permissions.all()
+usuario.groups.all()
+usuario.groups.add(grupo)
+usuario.groups.all()
+exit()
+
+./manage.py runserver
+CTR-C
