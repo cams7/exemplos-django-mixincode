@@ -144,7 +144,7 @@ from django import template
 t = template.Template('Meu nome é {{nome|upper}}.')
 c = template.Context({'nome': 'César A. Magalhães'})
 t.render(c)
-c = template.Context({'nome': 'Kércia O. Alves'})
+c = template.Context({'nome': 'Antônio O. Alves'})
 t.render(c)
 
 template_string = '''
@@ -274,7 +274,7 @@ usuario.username
 usuario.email
 usuario.is_superuser
 usuario.first_name = 'Luiz'
-usuario.last_name = 'Magalhães'
+usuario.last_name = 'Gomes'
 usuario.save()
 usuario.set_password('12345')
 usuario.save()
@@ -338,7 +338,7 @@ exit()
 from django.contrib.auth.models import User, Group, Permission
 usuario = User.objects.create_user('luan', 'luan@teste.com', '12345')
 usuario.first_name = 'Luan'
-usuario.last_name = 'Magalhães'
+usuario.last_name = 'Silva'
 usuario.save()
 usuario.user_permissions.all()
 usuario.user_permissions.clear()
@@ -386,6 +386,15 @@ exit()
 ./runtests
 ```
 10. [Aula 10](https://www.youtube.com/watch?v=La58UNoU_dY&index=10&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula10](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula10)
+```sh	
+./manage.py startapp aula10
+
+./manage.py collectstatic
+
+./manage.py runserver
+#http://localhost:8000/aula10
+#CTR-C
+```
 11. [Aula 11](https://www.youtube.com/watch?v=GKeR8BZRX-A&index=11&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula11](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula11)
 12. [Aula 12](https://www.youtube.com/watch?v=xx0D44dnzy4&index=12&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula12](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula12)
 13. [Aula 13](https://www.youtube.com/watch?v=HXIdtcDMUAI&index=13&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula13](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula13)

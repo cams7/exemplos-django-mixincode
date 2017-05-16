@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load aula10_tags %}
+
+{% block title %}Aula 10{% endblock %}
+
+{% block content %}
+  <p>
+    <a href="{%static 'aula10/teste.txt'%}">Faça do download do texte.txt</a>
+  </p>
+
+  {% if user.is_authenticated %}
+    <p>Usuário logado</p>
+  {% else %}
+    <p>Faça seu login</p>
+  {% endif %}
+
+  {% if request.method == 'GET' %}
+    <p>Método GET!</p>
+  {% endif%}
+
+  {% if settings.DEBUG %}
+    <p>Estamos em desenvolvimento!</p>
+  {% endif %}
+
+  O nome é {{ nome | swapcase}}
+
+  <p>{{nome | bold | safe}}</p>
+
+  <p>{{nome | add_tag:'i' | safe}}</p>
+
+  {% get_user 'cams7' as usuario %}
+  <p>{{ usuario.email}}</p>
+
+  {% show_users %}
+  
+{% endblock %}

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'aula7',
     'aula8',
     'aula9',
+    'aula10',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'aula10.context_processors.inject_settings',
             ],
         },
     },
@@ -170,8 +172,3 @@ STATICFILES_DIRS = (
 
 AUTH_PROFILE_MODULE = 'aula7.UserProfile'
 LOGIN_URL = '/aula7/'
-
-
-
-
-
