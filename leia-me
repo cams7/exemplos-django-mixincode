@@ -263,20 +263,6 @@ CTR-C
 
 ./manage.py startapp aula9
 
-#-------------------------------------------------
-
-mysql --version
-
-mysql -u root -p
-CREATE DATABASE test_cursodjango2;
-GRANT ALL PRIVILEGES ON test_cursodjango2.* TO 'mixincode'@'%';
-FLUSH PRIVILEGES;
-exit
-mysql --host=127.0.0.1 --user=mixincode --password=django test_cursodjango2
-exit
-
-#-------------------------------------------------
-
 ./manage.py runserver
 http://localhost:8000/aula9
 CTR-C
