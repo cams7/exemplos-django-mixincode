@@ -13,8 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
 
 from aula3.views import index as aula3_index
 from aula3.views import detail as aula3_detail
@@ -27,6 +28,7 @@ from aula7.views import view_protegida as aula7_view_protegida
 from aula7.views import view_protegida2 as aula7_view_protegida2
 from aula9.views import index as aula9_index
 from aula10.views import index as aula10_index
+from aula11.views import index as aula11_index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -47,4 +49,11 @@ urlpatterns = [
     url(r'^aula9/$', aula9_index, name='aula9_index'),
 
     url(r'^aula10/$', aula10_index, name='aula10_index'),
+
+    url(r'^aula11/$', aula11_index, name='aula11_index'),
 ]
+
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls)),]

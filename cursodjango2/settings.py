@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_PATH)
 SECRET_KEY = 'c8xqsy(6992t^%#_&ga@0!2#p8d@3kcn6^y667+ea+ji1xoa-u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'aula8',
     'aula9',
     'aula10',
+    'aula11',
 ]
 
 MIDDLEWARE = [
@@ -84,29 +85,15 @@ WSGI_APPLICATION = 'cursodjango2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'cursodjango2',                # Or path to database file if using sqlite3.
-        'USER': 'mixincode',                  # Not used with sqlite3.
-        'PASSWORD': 'django',                 # Not used with sqlite3.
-        'HOST': '127.0.0.1',                  # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',                       # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -172,3 +159,12 @@ STATICFILES_DIRS = (
 
 AUTH_PROFILE_MODULE = 'aula7.UserProfile'
 LOGIN_URL = '/aula7/'
+
+# ==============================================================================
+# Load settings_local.py if exists
+# ==============================================================================
+try:
+    FILENAME = os.path.join(PROJECT_PATH, 'settings_local.py')
+    exec(compile(open(FILENAME, "rb").read(), FILENAME, 'exec'), globals(), locals())
+except IOError:
+    pass

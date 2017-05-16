@@ -331,7 +331,6 @@ exit()
 #http://localhost:8000/view_protegida2
 #CTR-C
 
-
 ./manage.py shell
 ```
 ```py
@@ -396,6 +395,31 @@ exit()
 #CTR-C
 ```
 11. [Aula 11](https://www.youtube.com/watch?v=GKeR8BZRX-A&index=11&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula11](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula11)
+```sh	
+pip install django-debug-toolbar
+
+./manage.py shell
+```
+```py
+from django.conf import settings
+settings.DEBUG
+settings.DATABASES
+settings.INSTALLED_APPS
+settings.MIDDLEWARE
+settings.INTERNAL_IPS
+```
+
+```sh	
+./manage.py startapp aula11
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py runserver
+#http://localhost:8000/aula11
+#CTR-C
+```
 12. [Aula 12](https://www.youtube.com/watch?v=xx0D44dnzy4&index=12&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula12](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula12)
 13. [Aula 13](https://www.youtube.com/watch?v=HXIdtcDMUAI&index=13&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula13](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula13)
 14. [Aula 14](https://www.youtube.com/watch?v=UkY9dvYFQ_E&index=14&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula14](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula14)
