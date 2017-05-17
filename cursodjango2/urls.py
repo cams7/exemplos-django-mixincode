@@ -30,6 +30,7 @@ from aula9.views import index as aula9_index
 from aula10.views import index as aula10_index
 from aula11.views import index as aula11_index
 from aula12.views import index as aula12_index
+from aula13.views import index as aula13_index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -54,9 +55,22 @@ urlpatterns = [
     url(r'^aula11/$', aula11_index, name='aula11_index'),
 
     url(r'^aula12/$', aula12_index, name='aula12_index'),
+
+    url(r'^aula13/$', aula13_index, name='aula13_index'),
 ]
 
 
 if settings.DEBUG:
+    from django.views.static import serve as static_serve
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', static_serve,
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}
+         ),
+    ]
+
+    urlpatterns += staticfiles_urlpatterns()
+
     import debug_toolbar
     urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls)),]

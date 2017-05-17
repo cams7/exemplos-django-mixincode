@@ -455,5 +455,40 @@ perfil.tags.all()
 exit()
 ```
 13. [Aula 13](https://www.youtube.com/watch?v=HXIdtcDMUAI&index=13&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula13](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula13)
+```sh
+sudo python -m smtpd -n -c DebuggingServer localhost:25
+
+./manage.py shell
+```
+```py
+from django.core.mail import send_mail
+send_mail('Assunto do e-mail', 'Essa é a mensagem!', 'ceanma@gmail.com', ['ceanma@gmail.com',], fail_silently=False)
+exit()
+```
+```sh
+./manage.py shell
+```
+```py
+from django.core.mail import EmailMessage
+msg = EmailMessage('Assunto do e-mail', '<h1>Essa é a mensagem!</h1>', 'ceanma@gmail.com', ['ceanma@gmail.com',])
+msg.content_subtype = 'html'
+msg.send()
+exit()
+```
+
+```sh
+./manage.py runserver
+#CTR-C
+
+./manage.py startapp aula13
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py runserver
+#http://localhost:8000/aula13
+#CTR-C
+```
 14. [Aula 14](https://www.youtube.com/watch?v=UkY9dvYFQ_E&index=14&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula14](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula14)
 
