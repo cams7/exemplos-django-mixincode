@@ -421,6 +421,39 @@ settings.INTERNAL_IPS
 #CTR-C
 ```
 12. [Aula 12](https://www.youtube.com/watch?v=xx0D44dnzy4&index=12&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula12](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula12)
+```sh
+./manage.py startapp aula12
+
+./manage.py check
+./manage.py makemigrations
+./manage.py migrate
+
+./manage.py runserver
+#http://localhost:8000/aula12
+#CTR-C
+
+./manage.py shell
+```
+```py
+from django.contrib.auth.models import User
+from aula12.models import UserProfile, Tag
+usuario = User.objects.get(id=1)
+tag = Tag(name='Minha Tag')
+tag.content_object = usuario
+tag.save()
+tag = Tag.objects.get(id=1)
+tag.content_object
+perfil = UserProfile(user=usuario,age=34,twitter='https://twitter.com/_cams7')
+perfil.save()
+tag = Tag(name='Minha Segunda Tag')
+tag.content_object = perfil
+tag.save()
+tag = Tag.objects.get(id=2)
+tag.content_object
+perfil = UserProfile.objects.get(id=1)
+perfil.tags.all()
+exit()
+```
 13. [Aula 13](https://www.youtube.com/watch?v=HXIdtcDMUAI&index=13&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula13](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula13)
 14. [Aula 14](https://www.youtube.com/watch?v=UkY9dvYFQ_E&index=14&list=PLfkVgm8720kzm6fmTekjtKyFcppyD4Ubd) | [aula14](https://github.com/cams7/exemplos-django-mixincode/tree/master/aula14)
 

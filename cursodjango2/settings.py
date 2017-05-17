@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'aula9',
     'aula10',
     'aula11',
+    'aula12',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'aula12.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'cursodjango2.urls'
@@ -163,8 +165,6 @@ LOGIN_URL = '/aula7/'
 # ==============================================================================
 # Load settings_local.py if exists
 # ==============================================================================
-try:
-    FILENAME = os.path.join(PROJECT_PATH, 'settings_local.py')
-    exec(compile(open(FILENAME, "rb").read(), FILENAME, 'exec'), globals(), locals())
-except IOError:
-    pass
+FILENAME = os.path.join(PROJECT_PATH, 'settings_local.py')
+with open(FILENAME, "rb") as file:
+    exec(compile(file.read(), FILENAME, 'exec'), globals(), locals())

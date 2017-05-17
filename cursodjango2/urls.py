@@ -29,6 +29,7 @@ from aula7.views import view_protegida2 as aula7_view_protegida2
 from aula9.views import index as aula9_index
 from aula10.views import index as aula10_index
 from aula11.views import index as aula11_index
+from aula12.views import index as aula12_index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -51,6 +52,8 @@ urlpatterns = [
     url(r'^aula10/$', aula10_index, name='aula10_index'),
 
     url(r'^aula11/$', aula11_index, name='aula11_index'),
+
+    url(r'^aula12/$', aula12_index, name='aula12_index'),
 ]
 
 
